@@ -1,0 +1,6 @@
+{
+    "PORT": 3018,
+    "DEFAULT_PORT": 3018,
+    "MONGODB_URI": "mongodb://ra-followup-1:EY0m9sU6PxL6bVT9@areteq-mdb-shard-00-00-kw4zo.mongodb.net:27017,areteq-mdb-shard-00-01-kw4zo.mongodb.net:27017,areteq-mdb-shard-00-02-kw4zo.mongodb.net:27017/test?ssl=true&replicaSet=areteq-mdb-shard-0&authSource=admin&retryWrites=true&w=majority",
+   "SECRET_KEY": "my-secrete"
+}

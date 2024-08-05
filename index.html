@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovice</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size:9px;
+            font-family: "Roboto", sans-serif;
+        }
+        h3{
+            text-align: center;
+            padding: 10px;
+
+        }
+        body{
+            border:1px solid rgb(70, 69, 69);
+        }
+        .header-container{
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+            padding: 10px;
+        }
+        table, th, td {
+        text-align: left;
+        border-collapse: collapse;
+        padding:5px;
+        }
+        /* .member-container{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 10px;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+        .course-container{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 10px;
+            padding: 10px;
+        } */
+        img{
+            width:150px;
+        }
+         .name{
+                margin-top:20px;
+                border-right:5px solid #0377AA;
+                text-align: right;
+                margin-right: 20px;
+            }
+            .name h6{
+                margin-right:10px;
+            }
+            .name p{
+                margin-right:10px;
+            } 
+    </style>
+</head>
+<body>
+    <h3>INVOICE / RECEIPT</h3>
+    <hr>
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: left;width:50%;">
+                <img src={%IMG_SRC%} />
+            </td>
+            <td style="text-align: right;">
+                <div class="name">
+                    <h6>{%COMPANY_NAME%}</h6>
+                    <p>{%COMPANY_ADDRESS%},<br>
+                        {%COMPANY_CITY%}.{%COMPANY_CONTACT%}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- <div class="header-container">
+        <div>
+            <img src="img/logo.jpg">
+        </div>
+        <div>
+            <div class="name">
+                <h6>VALEOSIS FITNESS CLUB</h6>
+                <p>1st Floor Sr. No. 29/1 Krushnai Complex,<br>
+                    Opp. Corporation Bank,
+                    Karvenagar , Pune.9657811222</p>
+            </div>
+        </div>
+    </div> -->
+    <hr>
+    <h6 style="padding:5px 5px 10px 5px;color:#363996;background-color: #f2f2f2;">Member Information</h6>
+    <table style="width:100%; background-color: #f2f2f2;" >
+        <tr>
+            <th>Member ID</th>
+            <th>Name</th> 
+            <th>Contact No.</th>
+            <th>Email ID</th>
+            <th>Date</th>
+            <th>Invoice No.</th>
+            <th>GST No.</th>
+            <th>State</th>
+        </tr>
+        <tr>
+            <td>{%MEMBER_ID%}</td>
+            <td>{%MEMBER_FIRST_NAME%} {%MEMBER_LAST_NAME%}</td>
+            <td>{%MEMBER_CONTACT%}</td>
+            <td>{%MEMBER_EMAIL%}</td>
+            <td>{%FEES_PAYMENT_DATE%}</td>
+            <td>{%INVOICE_NO%}</td>
+            <td>{%GST_NO%}</td>
+            <td>{%STATE%}</td>
+        </tr>
+    </table>
+    <hr>
+    <table style="width: 100%; margin-top:10px;">
+        <tr>
+            <th colspan="5" style="text-align: left;color:#363996; ">
+            Membership Details
+            </th>
+        </tr>	
+        <tr>
+            <th style="text-align: left;width:20%;">
+            Membership Name:
+            </th>
+            <td style="text-align: left;">
+                {%COURSE_NAME%}
+            </td>
+            <th style="text-align: left; width:20%;">
+                Course Fees
+            </th>
+            <td style="text-align: left;">
+                ₹{%COURSE_FEES%}
+            </td>
+        </tr>
+        <tr>
+            <th style="text-align: left;width:10%;">
+                Plan
+            </th>
+            <td style="text-align: left;">
+                {%COURSE_PLAN%}
+            </td>
+            <th style="text-align: left; width:10%;">
+              CGST({%CGST%}%)
+          </th>
+          <td style="text-align: left;">
+              ₹{%CGST_AMOUNT%}
+          </td>
+        </tr>
+        <tr>
+            <th style="text-align: left;width:10%;">
+                Start Date
+            </th>
+            <td style="text-align: left;">
+                {%START_DATE%}
+            </td>
+            <th style="text-align: left; width:10%;">
+              SGST({%SGST%}%)
+          </th>
+          <td style="text-align: left;">
+              ₹{%SGST_AMOUNT%}
+          </td>
+        </tr>
+        <tr>
+            <th style="text-align: left;width:10%;">
+                End Date
+            </th>
+            <td style="text-align: left;">
+                {%END_DATE%}
+            </td>
+            <th style="text-align: left; width:10%;">
+              IGST({%IGST%}%)
+          </th>
+          <td style="text-align: left;">
+              ₹{%IGST_AMOUNT%}
+          </td>
+        </tr>
+        <tr>
+            <th style="text-align: left;width:10%;">
+                Pay Mode
+            </th>
+            <td style="text-align: left;">
+                {%PAYMENT_MODE%}
+            </td>
+            <th style="text-align: left; width:10%;">
+              Total 
+          </th>
+          <td style="text-align: left;">
+              {%TOTAL_AMOUNT%}
+          </td>
+        </tr>
+        <tr>
+          <th style="text-align: left;width:10%;">
+            Membership Fees
+          </th>
+          <td style="text-align: left;">
+            ₹{%COURSE_FEES%}
+          </td>
+          <th style="text-align: left; width:10%;">
+            Paid Fees
+        </th>
+        <td style="text-align: left;">
+            {%PAID_FEES%}
+        </td>
+        </tr>
+        <tr>
+          <th style="text-align: left; width:10%;">
+            Discount
+        </th>
+        <td style="text-align: left;">
+            ₹{%DISCOUNT_AMOUNT%}
+        </td>
+           
+        <th style="text-align: left; width:10%;">
+          Balance 
+      </th>
+      <td style="text-align: left;">
+          {%PENDING_FEES%}
+      </td>
+        </tr>
+     
+        <tr>
+          
+          <th style="text-align: left;width:10%;">
+            Executive
+        </th>
+        <td style="text-align: left;">
+            {%EXECUTIVE_NAME%}
+        </td>
+
+         
+        </tr>
+        
+       <!-- <tr>
+            <th style="text-align: left;width:10%;">
+                GST
+            </th>
+            <td style="text-align: left;">
+                sddv
+            </td>
+            
+        </tr>
+        -->
+    </table>
+    
+
+
+    <!-- <div class="member-container">
+        <p>Member Information</p>
+        <div>	
+            <span style="color:rgb(156, 156, 156); font-size:8px;">Member ID</span><br>
+            <span style="font-size:9px; color: #444;">4481</span>
+        </div>
+        <div>	
+            <span style="color:rgb(156, 156, 156); font-size:8px;">Name</span><br>
+            <span style="font-size:9px; color: #444;">Seema Biradar</span></div>
+        <div>
+            <span style="color:rgb(156, 156, 156); font-size:8px;">Contact No.</span><br>
+            <span style="font-size:9px; color: #444;">9405416024</span>
+        </div>
+        <div>
+            <span style="color:rgb(156, 156, 156); font-size:8px;">Email ID</span><br>
+            <span style="font-size:9px; color: #444;">seemabrdr@gmail.com</span>
+        </div>
+        <div>
+            <span style="color:rgb(156, 156, 156); font-size:8px;">Date</span><br>
+            <span style="font-size:9px; color: #444;">15/3/2022</span>
+        </div>
+        <div>
+            <span style="color:rgb(156, 156, 156); font-size:8px;">Invoice No.</span><br>
+            <span style="font-size:9px; color: #444;">34559</span>
+        </div> 
+        <div>
+            <span style="color:rgb(156, 156, 156); font-size:8px;">GST No.</span><br>
+            <span style="font-size:9px; color: #444;"></span>
+        </div>
+        <div>
+            <span style="color:rgb(156, 156, 156); font-size:8px;">State</span><br>
+            <span style="font-size:9px; color: #444;">Maharashtra</span>
+        </div>
+    </div>
+    <div class="course-container">
+        <div>
+            <p>Course Name : 2 months regular hrs</p>
+            <p>Plan : 2 months</p>
+            <p>Instructor : </p>
+            <p>Start Date : </p>
+            <p>End Date : </p>
+        </div>
+        <div>
+            <p>Pay Mode :</p>
+            <p>Amt In word :</p>
+            <p>Executive :</p>
+            <p>Member GST : </p>
+        </div>
+        <div>
+            <p>Course Fees : </p>
+            <p>Reg Fees : 2 months</p>
+            <p>Discount : </p>
+            <p>CGST(9%) : </p>
+        </div>
+        <div>
+            <p>SGST(9%) : </p>
+            <p>IGST(0%) :</p>
+            <p>Total :</p>
+            <p>Paid Fees :</p>
+            <p>Balance : </p>
+        </div>
+    </div> -->
+</body>
+</html>

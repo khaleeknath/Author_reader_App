@@ -1,0 +1,16 @@
+
+> node-api-boilerplate@1.0.0 start
+> node ./build/main.js
+
+[32minfo[39m:    
+    ################################################
+    ###     Server listening on port: port 3018    ###
+    ################################################
+    
+/home/jarvis/Desktop/Harish/Author_reader_App/build
+{ id: 9, iat: 1722833719 }
+[0mPATCH /content/v1/change_publish_status/bookId/66b05bdd34bae88dfdaef6dc [32m200[0m 73.558 ms - 432[0m
+{ id: 9, iat: 1722833719 }
+[0mPATCH /content/v1/change_publish_status/bookId/66b05bdd34bae88dfdaef6dc [32m200[0m 22.143 ms - 432[0m
+{ id: 9, iat: 1722833719 }
+[0mGET /content/v1/get_book_details/bookId/66af7f5fd2d92d3920235c1e [32m200[0m 16.026 ms - 434[0m
