@@ -47,15 +47,7 @@ export class AppDBConnectionManager {
     public async initializeConnection (databaseConfig: DatabaseConfig): Promise<void> {
         this.databaseConfig = databaseConfig;
         try {
-            // this.dbClient = new Sequelize(this.databaseConfig.DATABASE, this.databaseConfig.USER, this.databaseConfig.PASSWORD, {
-            //     host: this.databaseConfig.HOST,
-            //     dialect: 'mysql',
-            //     define: {
-            //         timestamps: false,
-            //         freezeTableName: true
-            //     },
-            // });
-
+           
           await mongoose.connect("mongodb://127.0.0.1:27017/Reader_Author_db", {
 
 
@@ -131,22 +123,7 @@ export class AppDBConnectionManager {
      * @private
      * @memberof BuzzDBConnectionManager
      */
-    // private readonly checkConnection = (delayTime: number): Promise<boolean> => {
-    //     return new Promise<boolean>((resolve) => {
-    //         setTimeout(() => {
-    //             this.dbClient
-    //                 .authenticate()
-    //                 .then(() => {
-    //                     logger.info(AppServerConstant.SUCCESS_MESSAGES.SUCCESS_CONNECTION_TEXT);
-    //                     resolve(true);
-    //                 })
-    //                 .catch(err => {
-    //                     logger.error('Error: %s', err.message);
-    //                     resolve(false);
-    //                 });
-    //         }, delayTime);
-    //     });
-    // }
+    
 
     /**
      * @private

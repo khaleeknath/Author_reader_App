@@ -2,7 +2,7 @@ import { Router } from "express";
 import { AppApiConstant } from "../../constants/api.constant";
 import { AuthenticationController } from "./authentication.controller";
 import { AuthenticationMiddleWare } from "./authentication.middleware";
-
+// sudo systemctl start  mongod
 export class AuthenticationRoutes
 {
 
@@ -26,6 +26,7 @@ export class AuthenticationRoutes
 
         this.router.post(
             AppApiConstant.API.REGISTER,
+            this.authenticationMiddleware.checkBodyForRegisterUser.bind(this.authenticationMiddleware),
             this.authenticationController.registerUser.bind( this.authenticationController )
         );
 

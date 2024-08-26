@@ -6,8 +6,8 @@ const ENVConfig = require(`../../config/${process.env.NODE_ENV}.json`);
 export class BookService {
 
   private readonly userModel: UserModel;
-  private readonly bookModel : BookModel;
-  private readonly RoleModel : RoleModel;
+  private readonly bookModel: BookModel;
+  private readonly RoleModel: RoleModel;
 
 
   constructor() {
@@ -20,7 +20,7 @@ export class BookService {
 
 
 
-   
+
   public async createBook(book): Promise<any> {
     try {
       const createBook = new this.bookModel.book(book);
@@ -39,7 +39,7 @@ export class BookService {
 
       const updatedBook = await this.bookModel.book.updateOne(
         { _id: bookId },
-        { $set: { cover  : book.cover ,  title: book.title,  description : book.description, genre : book.genre, publishDate : book.publishDate, price :book.price, tags : book.tags, rating : book.rating} } // Update the token field
+        { $set: { cover: book.cover, title: book.title, description: book.description, genre: book.genre, publishDate: book.publishDate, price: book.price, tags: book.tags, rating: book.rating } } // Update the token field
       );
 
       const books = await this.bookModel.book.findOne(
@@ -55,19 +55,19 @@ export class BookService {
   public async changeBookStatus(bookId): Promise<any> {
     try {
 
-      const bookData = await this.bookModel.book.findOne({_id : bookId})
-   
+      const bookData = await this.bookModel.book.findOne({ _id: bookId })
 
-      
+
+
       const updatedBook = await this.bookModel.book.updateOne(
         { _id: bookId },
-        { $set: { isPublished : bookData.isPublished == 1 ? 0 : 1} } 
+        { $set: { isPublished: bookData.isPublished == 1 ? 0 : 1 } }
       );
 
       const books = await this.bookModel.book.findOne(
         { _id: bookId }
       );
-    return books;
+      return books;
     } catch (error) {
       throw error;
     }
@@ -75,22 +75,21 @@ export class BookService {
 
   public async getBookList(userData, searchData): Promise<any> {
     try {
-      
+
       let bookList;
       if (searchData != undefined && searchData != '') {
 
 
-         bookList = await this.bookModel.book.find({ isPublished: 1 , authorId : userData._id,   title: { $regex: searchData, $options: 'i' }});
-         
-      }else 
-      {
+        bookList = await this.bookModel.book.find({ isPublished: 1, authorId: userData._id, title: { $regex: searchData, $options: 'i' } });
 
-        bookList = await this.bookModel.book.find({ isPublished: 1 , authorId : userData._id});
+      } else {
+
+        bookList = await this.bookModel.book.find({ isPublished: 1, authorId: userData._id });
       }
 
-   
-     return bookList;
-    
+
+      return bookList;
+
     } catch (error) {
       throw error;
     }
@@ -101,24 +100,24 @@ export class BookService {
     try {
 
 
-      let role = await this.RoleModel.role.findOne({ name: "Author"});
-      
+      let role = await this.RoleModel.role.findOne({ name: "Author" });
+
       // let bookList;
       // if (searchData != undefined && searchData != '') {
 
 
       //    bookList = await this.bookModel.book.find({ isPublished: 1 , authorId : userData._id,   title: { $regex: searchData, $options: 'i' }});
-         
+
       // }else 
       // {
 
-      let authorList = await this.userModel.user.find({ roleId : role._id});
-      
+      let authorList = await this.userModel.user.find({ roleId: role._id });
+
       // }
 
-   
-     return authorList;
-    
+
+      return authorList;
+
     } catch (error) {
       throw error;
     }
@@ -127,13 +126,13 @@ export class BookService {
 
   public async getBookListByAuthorId(authorId): Promise<any> {
     try {
-      
 
-        let bookList = await this.bookModel.book.find({  authorId : authorId, isPublished : 1 });
-        
-   
-    return bookList;
-    
+
+      let bookList = await this.bookModel.book.find({ authorId: authorId, isPublished: 1 });
+
+
+      return bookList;
+
     } catch (error) {
       throw error;
     }
@@ -142,13 +141,13 @@ export class BookService {
 
   public async getBookDetails(bookId): Promise<any> {
     try {
-      
 
-        let bookDetails = await this.bookModel.book.find({  _id : bookId });
-        
-   
-    return bookDetails;
-    
+
+      let bookDetails = await this.bookModel.book.find({ _id: bookId });
+
+
+      return bookDetails;
+
     } catch (error) {
       throw error;
     }

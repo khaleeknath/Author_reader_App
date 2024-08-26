@@ -152,4 +152,30 @@ export class AuthenticationMiddleWare
         }
     }
 
+
+
+    public async checkBodyForRegisterUser ( req: IRequest, res: Response, next: NextFunction ): Promise<void>
+    {
+
+        try
+        {
+
+            
+            if (!req.body.name || !req.body.address || !req.body.password || !req.body.authContact) {
+                throw new Error( "All the fields are required." );
+            }else{
+
+                next();
+            }
+
+        } catch ( error )
+        {
+            error.statusCode = 403;
+            return next( error );
+        }
+    }
+
+
+
+
 }
